@@ -13,16 +13,35 @@ const ProviderSignup = () => {
 
   return (
     <div className='w-full h-full grid lg:grid-cols-3 md:grid-cols-5 bg-white'>
-    <div className='md:col-span-2 lg:col-span-1 flex flex-col items-center justify-center'>
-        <h1 className='font-Viaoda text-7xl mb-10'>Signup</h1>
+    <div className='md:col-span-2 lg:col-span-1 flex flex-col items-center justify-center mb-20'>
+        <h1 className='font-Viaoda text-7xl mb-10 mt-20'>Signup</h1>
         <input type="text" name='companyName'  placeholder='Company Name' className='w-[90%] h-20 mt-10 text-3xl border-2 border-black rounded-3xl text-center' />
         <textarea name="description" placeholder='Description' id="" className='w-[90%] max-h-40 mt-10 text-3xl border-2 border-black rounded-3xl text-center show-scrollbar'></textarea>
         <select name="services"  id="" className='w-[90%] h-20 mt-10 text-3xl border-2 border-black rounded-3xl text-center'>
-          <option value="">-- Choose your service --</option>
+        <option value="">-- Choose a category --</option>
           <option value="">Wedding planning</option>
           <option value="">Travels</option>
           <option value="">Photography</option>
         </select>
+
+        <select name="" id="" className='w-[90%] h-20 mt-10 text-3xl border-2 border-black rounded-3xl text-center'>
+          <option value="#">-- Choose your place --</option>
+                              <option value="Alappuzha" >Alappuzha</option>
+                              <option value="Ernakulam">Ernakulam</option>
+                              <option value="Idukki">Idukki</option>
+                              <option value="Kannur">Kannur</option>
+                              <option value="Kasaragod">Kasaragod</option>
+                              <option value="Kollam">Kollam</option>
+                              <option value="Kottayam">Kottayam</option>
+                              <option value="Kozhikode">Kozhikode</option>
+                              <option value="Malappuram">Malappuram</option>
+                              <option value="Palakkad">Palakkad</option>
+                              <option value="Pathanamthitta">Pathanamthitta</option>
+                              <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                              <option value="Thrissur">Thrissur</option>
+                              <option value="Wayanad">Wayanad</option>
+                          </select>
+
         <input type="text" name='Phone' value='' placeholder='Phone' className='w-[90%] h-20 mt-10 text-3xl border-2 border-black rounded-3xl text-center'/>
         <input type="email" name='email' value='' placeholder='Email' className='w-[90%] h-20 mt-10 text-3xl border-2 border-black rounded-3xl text-center' />
         <input type="password" name='email' value='' placeholder='Password' className='w-[90%] h-20 mt-10 text-3xl border-2 border-black rounded-3xl text-center' />
