@@ -4,7 +4,7 @@ import { FaUsersCog,FaChessRook } from "react-icons/fa";
 import { VscRequestChanges } from "react-icons/vsc";
 
 
-const Sidebar = () => {
+const Sidebar = (props) => {
 
     const [open, setOpen] = useState(true);
   return (
@@ -36,20 +36,19 @@ const Sidebar = () => {
         </h1>
       </div>
       <ul className="pt-6">
-
-          <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-gray-700  items-center gap-x-4 mb-5`}>
+      <li className={`${props.type=="user" && "bg-gray-700"} flex  rounded-md p-2 cursor-pointer hover:bg-gray-700  items-center gap-x-4 mb-5`}>
             <FaUsersCog className="text-3xl text-white"/>
             <span className={`${!open && "hidden"} origin-left duration-200`}>
               <h1 className="text-white text-xl">User Management</h1>
             </span>
                 </li>
-                <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-gray-700  items-center gap-x-4 mb-5`}>
+                <li className={`${props.type=="req" && "bg-gray-700"} flex  rounded-md p-2 cursor-pointer hover:bg-gray-700  items-center gap-x-4 mb-5`}>
             <VscRequestChanges className="text-3xl text-white"/>
             <span className={`${!open && "hidden"} origin-left duration-200`}>
               <h1 className="text-white text-xl">Requests</h1>
             </span>
                 </li>
-                <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-gray-700  items-center gap-x-4 mb-5`}>
+                <li className={`${props.type=="event" && "bg-gray-700"} flex  rounded-md p-2 cursor-pointer hover:bg-gray-700  items-center gap-x-4 mb-5`}>
             <FaChessRook className="text-3xl text-white"/>
             <span className={`${!open && "hidden"} origin-left duration-200`}>
               <h1 className="text-white text-xl">Service providers</h1>
