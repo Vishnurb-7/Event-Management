@@ -39,7 +39,7 @@ const Sidebar = () => {
 
           <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-gray-700  items-center gap-x-4 mb-5`}>
             <FaUsersCog className="text-3xl text-white"/>
-            <span className={`${!open && "hidden"} orig. in-left duration-200`}>
+            <span className={`${!open && "hidden"} origin-left duration-200`}>
               <h1 className="text-white text-xl">User Management</h1>
             </span>
                 </li>

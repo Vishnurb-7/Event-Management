@@ -7,6 +7,9 @@ import AdminLanding from './pages/adminPage/AdminLanding'
 import ProviderLogin from "./pages/providerPage/ProviderLogin"
 import ProviderProfile from "./pages/providerPage/ProviderProfile"
 import ProviderSignup from './pages/providerPage/ProviderSignup'
+import EditProfile from './pages/providerPage/EditProfile'
+import Messages from './components/providerComponents/Messages'
+import ProviderChat from './pages/providerPage/ProviderChat'
 import UserManagement from './pages/adminPage/UserManagement'
 import Chat from "./pages/Chat"
 import Providers from "./pages/Providers"
@@ -27,6 +30,9 @@ const App = () => {
           <Route path='ProviderLogin' element = {<ProviderLogin/>}/>
           <Route path='ProviderSignup' element = {<ProviderSignup/>}/>
           <Route path='ProviderProfile' element = {<ProviderProfile/>}/>
+          <Route path='EditProfile' element = {<EditProfile/>}/>
+          <Route path='messages' element ={<Messages/>}/>
+          <Route path='ProviderChat' element = {<ProviderChat/>}/>
           <Route path='AdminLogin' element = {<AdminLogin/>}/>
           <Route path='AdminLanding' element = {<AdminLanding/>}/>
           <Route path='UserManagement' element = {<UserManagement/>}/>

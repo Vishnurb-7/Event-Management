@@ -13,9 +13,9 @@ const Login = () => {
               <h1 className='font-Viaoda text-7xl mb-8'>Login</h1>
               <input type="text" name='email' value='' placeholder='Email' className='w-[90%] h-20 mt-10 text-3xl border-2 border-black rounded-2xl text-center'/>
               <input type="password" name='password' value='' placeholder='Password' className='w-[90%] h-20 mt-10 text-3xl border-2 border-black rounded-2xl text-center'/>
-              <button className='w-[60%] h-20 mt-10 text-3xl font-semibold border-2 border-black rounded-2xl text-center'>Login</button>
+              <button className='w-[60%] h-20 mt-10 text-3xl font-semibold border-2 border-black rounded-2xl text-center hover:scale-105 hover:bg-black hover:text-white'>Login</button>
               <p className='mt-5'>Register using <a className='text-blue-900 font-semibold cursor-pointer' onClick={signupHandle}>Signup</a></p>
-              <button className='w-[60%] h-20 mt-10 flex flex-row items-center pl-3 text-2xl font-medium border-2 border-black rounded-2xl text-center'><span className='w-[20%] h-20 flex items-center justify-center'><FcGoogle/></span>Login with google</button>
+              <button className='w-[60%] h-20 mt-10 flex flex-row items-center pl-3 text-2xl font-medium border-2 border-black rounded-3xl text-center  hover:bg-black hover:text-white'><span className='w-[20%] h-20 flex items-center justify-center'><FcGoogle/></span>Login with google</button>
       </div>
       <div className='hidden md:flex items-center flex-col md:col-span-3 lg:col-span-2'>
               <img src="../../public/logi.jpg" alt="LOGIN" className='w-[75%]' />
