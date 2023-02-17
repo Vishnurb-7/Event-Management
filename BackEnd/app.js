@@ -1,20 +1,27 @@
 const express = require('express')
+const app = express()
 const mongoose = require('mongoose')
-
-const path = require('path')
 const cors = require('cors')
-
-const dbconfig = require('./config/dbConfig')
+require('dotenv/config')
+// const dbconfig = require('./config/dbConfig')
 
 const userRouter = require('./router/userRouter')
 const providerRouter = require('./router/providerRouter')
 const adminRouter = require('./router/adminRouter')
 
-const app = express()
+app.use(express.json())
+app.use(cors({
+    origin:'http://localhost:5173',
+    credentials:true
+}));
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+  });
 
-app.use(cors());
-
-dbconfig()
+// dbconfig()
+mongoose.set('strictQuery',false)
+mongoose.connect('mongodb://localhost:27017/eventManagement')
 
 app.use(function(req,res,next){
     res.set(
@@ -24,24 +31,20 @@ app.use(function(req,res,next){
     next();
 })
 
-app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Headers",
-                  "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    );
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-    next();
 
-})
+// app.use((req,res,next)=>{
+//     res.setHeader("Access-Control-Allow-Origin", "*");
+//     res.setHeader("Access-Control-Allow-Headers",
+//                   "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+//     );
+//     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+//     next();
+
+// })
 
 app.use("/",userRouter);
-app.use("/provider",providerRouter);
-app.use("/admin",adminRouter);
 
-app.get("*",(req,res,next)=>{
-    res.send("ALL DONE !!!");
-})
 
 app.listen(8080,()=>{
-    console.log("listening to port 8000");
+    console.log("listening to port 8080");
 })

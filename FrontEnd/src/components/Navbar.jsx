@@ -15,6 +15,10 @@ const Navebar = () => {
   const profileHandle = ()=>{
     navigate("/profile")
   }
+  const logoutHandle =()=>{
+    localStorage.removeItem('users')
+    navigate('/login')
+  }
 
   const [nav, setNav] = useState("nav")  
   const handleNav = () => {
@@ -29,7 +33,7 @@ const Navebar = () => {
           <li onClick={homeHandle} className='p-4 font-bold cursor-pointer'>HOME</li>
           <li className='p-4 font-bold cursor-pointer'><HashLink smooth to="/#services">SERVICES</HashLink></li>
           <li onClick={profileHandle} className='p-4 font-bold cursor-pointer'>PROFILE</li>
-          <li className='p-4 font-bold cursor-pointer'>LOGOUT</li>
+          <li onClick={logoutHandle}  className='p-4 font-bold cursor-pointer'>LOGOUT</li>
         </ul>
          <div className='block md:hidden' onClick={handleNav}>
           {!nav ? <AiOutlineClose size={30}/> : <AiOutlineMenu size={30}/>}

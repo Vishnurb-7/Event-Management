@@ -1,7 +1,8 @@
-const express = require('express')
-const {check} = require('express-validator')
-
+const userRouter = require('express').Router()
 const userController = require('../controllers/userController')
-const userRouter = express.Router()
+
+userRouter.post('/mobileExist',userController.mobileExist)
+userRouter.post('/signup',userController.signup)
+userRouter.post('/login',userController.login)
 
 module.exports= userRouter;

@@ -1,14 +1,235 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import { FcGoogle} from 'react-icons/fc'
 import { useNavigate } from 'react-router-dom'
+
+import OtpModal from '../../components/providerComponents/OtpModal'
 
 
 const ProviderSignup = () => {
 
+  const[OtpModal,setOtpModal] = useState(false)
+  const addServiceClose = () => setOtpModal(false)
+
     const navigate = useNavigate()
     const loginHandle = () =>{
         navigate("/providerlogin")
+    }
+
+    const [providerData, setProviderData] = useState({
+      companyName:"",
+      description:"",
+      services:"",
+      place:"",
+      phone:"",
+      email:"",
+      password:""
+
+    })
+
+    const [image, setImage] = useState("")
+
+    const[validate, setValidate] = useState({
+      companyName:{
+        status:true,
+        message:""
+      },
+      description:{
+        status:true,
+        message:""
+      },
+      services:{
+        status:true,
+        message:""
+      },
+      place:{
+        status:true,
+        message:""
+      },
+      phone:{
+        status:true,
+        message:""
+      },
+      email:{
+        status:true,
+        message:""
+      },
+      password:{
+        status:true,
+        message:""
+      },
+      signOutError:{
+        status:true,
+        message:""
+      }
+      
+    })
+
+    const valueSetting = (e)=>{
+      setProviderData((prevState )=>({
+        ...prevState,
+        [e.target.name]: e.target.value
+      }));
+    };
+
+    const nameCheck = () =>{
+      if(providerData.companyName.length < 3) {
+        setValidate((prevState)=>({
+          ...prevState,
+          companyName:{
+            value:false,
+            message:"name must be more than 3 character"
+          }
+        }));
+        return false
+      }else{
+        setValidate((prevState) =>({
+          ...prevState,
+          companyName:{
+            value:true,
+            message:""
+          }
+        }))
+        return true
+      }
+    }
+
+
+    const descriptionCheck = () =>{
+      if(providerData.description==""){
+        setValidate((prevState) =>({
+          ...prevState,
+          description:{
+            value:false,
+            message:"description must be fill"
+          }
+        }))
+        return false
+      }else{
+        setValidate((prevState) =>({
+          ...prevState,
+          description:{
+            value:true,
+            message:""
+          }
+        }))
+        return true
+      }
+    }
+
+    const servicesCheck = () =>{
+      if(providerData.services==''){
+        setValidate((prevState)=>({
+          ...prevState,
+          services:{
+            value:false,
+            message:"select one category"
+          }
+        }))
+        return false
+      }else{
+        setValidate((prevState) =>({
+          ...prevState,
+          services:{
+            value:true,
+            message:""
+          }
+        }))
+        return true
+      }
+    }
+
+    const placeCheck = ()=>{
+      if(providerData.place==''){
+        setValidate((prevState)=>({
+          ...prevState,
+          place:{
+            value:false,
+            message:"select one place"
+          }
+        }))
+        return false
+      }else{
+        setValidate((prevState)=>({
+          ...prevState,
+          place:{
+            value:true,
+            message:""
+          }
+        }))
+        return true
+      }
+    }
+
+    const emailCheck =()=>{
+      const validRegex =   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if(!providerData.email.match(validRegex)){
+        setValidate((prevState)=>({
+          ...prevState,
+
+          email:{
+            value:false,
+            message:"is this  a correct email"
+          }
+        }))
+        return false
+      }else{
+        setValidate((prevState)=>({
+          ...prevState,
+          email:{
+            value:true,
+            message:""
+          }
+
+        }))
+        return true
+      }
+    }
+
+    const phoneCheck = () =>{
+      const Regex = /^(91)?[0-9]{10}$/;
+      if(!providerData.phone.match(Regex)){
+        setValidate((prevState)=>({
+          ...prevState,
+          phone:{
+            value:false,
+            message:"Enter correct phoneNumber"
+          }
+        }))
+        return false
+      }else{
+        setValidate((prevState)=>({
+          ...prevState,
+          phone:{
+            value:true,
+            message:""
+          }
+
+        }))
+        return true
+      }
+    }
+
+    const passwordCheck =() =>{
+      if(providerData.password.length<8){
+        setValidate((prevState)=>({
+          ...prevState,
+          password:{
+            value:false,
+            message:"password must be more than 8 character"
+          }
+        }))
+        return false
+      }else{
+        setValidate((prevState)=>({
+          ...prevState,
+          password:{
+            value:true,
+            message:""
+          }
+        }))
+        return true;
+      }
     }
 
   return (
@@ -53,9 +274,9 @@ const ProviderSignup = () => {
         <p className='mt-5'>Already a member?<a className='text-blue-900 font-semibold cursor-pointer' onClick={loginHandle}>Login</a></p>
         <button className='w-[60%] h-20 mt-10 flex flex-row items-center pl-3 text-2xl font-medium border-2 border-black rounded-3xl text-center'><span className='w-[20%] h-20 flex items-center justify-center'><FcGoogle/></span>Login with google</button>
     </div>
-    <div className='hidden md:flex items-center flex-col md:col-span-3 lg:col-span-2'>
+    <div className='hidden md:flex items-center flex-col md:col-span-3 lg:col-span-2 sticky'>
         <img src="plogin.jpg" alt="LOGIN" className='w-[100%] top-1 sticky' />
-        <h1 className='font-Viaoda text-7xl text-blank-500 absolute top-2/3 top-0 bottom-64 sticky'>Make everything easy</h1>
+        <h1 className='font-Viaoda text-7xl text-blank-500  top-2/3  bottom-64 sticky'>Make everything easy</h1>
     </div>
 
 

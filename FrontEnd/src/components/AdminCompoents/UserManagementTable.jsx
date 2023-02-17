@@ -70,13 +70,13 @@ const UserManagementTable = () => {
     const data = [
         {
 
-            email: 'Beetlejuice',
-			phone: '1988',
+            email: 'Vishnu@gmail.com',
+			phone: '8373635636',
         },
         {
 
-            email: 'Ghostbusters',
-			phone: '1984',
+            email: 'Anurag@gmail.com',
+			phone: '9483638383',
 		},
     ]
 
